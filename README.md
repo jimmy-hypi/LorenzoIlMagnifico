@@ -18,12 +18,12 @@ In this wiki you will be able to find some general information and requirements 
 
 ## How to start our application:
    In order to start our application you should follow these few upcoming steps:
-* At first you should find the `it.polimi.ingsw.ps19.launchers` package where the launchers are stored
+* At first you should find the `launchers` package where the launchers are stored
 * You must run the **Server** before: select the `ServerLauncher` class from the previous package and run it.
 * Now it's time for the **Client**: select the `ClientLauncher` class and run it
 * You should be now asked to insert the mode connection and the User Interface, insert them and you'll be ready to play!
 
-N.B. You can modify the max number of players by going to it.polimi.ingsw.ps19.constant.NetworkConstants and modifying the MAXPLAYERS constant up to 5 (to activate the fifth player). The server will enqueue the waiting players and it will wait a certaint time (taken from file) until all the players are connected or the timeout expires as requested by the specifications.
+N.B. You can modify the max number of players by going to constant.NetworkConstants and modifying the MAXPLAYERS constant up to 5 (to activate the fifth player). The server will enqueue the waiting players and it will wait a certaint time (taken from file) until all the players are connected or the timeout expires as requested by the specifications.
 
 ## Fifth Player Solution:
 We decided to add a little "spicy flavour" to the game by adding the figure of Satan into the game: his goal is to punish other players by subtracting them victory points. He has 99 victory points, and once per round he decides which player to punish preventing them to overcome him.
