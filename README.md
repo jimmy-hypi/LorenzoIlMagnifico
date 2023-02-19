@@ -1,4 +1,4 @@
-Authors: Jimmy Hypi, Mirko Mantovani, Matteo Marziali.
+Authors: Jimmy Hypi, Mirko Mantovani, Matteo Marziali @ Polytechnic University of Milan.
 
 Welcome to the `Lorenzo il Magnifico` game by _**MJM**_ wiki!
 In this wiki you will be able to find some general information and requirements for our project.
@@ -13,7 +13,7 @@ In this wiki you will be able to find some general information and requirements 
 
 # High level UML
 
-![Image]({{site.url}}{{site.baseurl}}/assets/viewNetworkingPackagesFinalUML.png)
+![Image](https://github.com/jimmy-hypi/LorenzoIlMagnifico/blob/main/assets/viewNetworkingPackagesFinalUML.png)
 
 
 ## How to start our application:
@@ -154,7 +154,7 @@ When created the Server starts the listening on both Socket port and RMI.
 
 * **Observer pattern** to let the listeners notify the Server that a new client has connected passing the abstract Runnable object ClientHandler (implemented by concrete socket and RMI handlers) to the server.
 * A ClientHandler is a Thread that is gonna handle a single Client for the entire game, filtering and allowing messages from the client and sending them over the right Network Interface.
-* When reaching the [`NetworkConstants.MINPLAYERS`](https://github.com/mirkomantovani/ProjectMJM/blob/master/src/main/java/it/polimi/ingsw/ps19/constant/NetworkConstants.java) a timer starts, and if the timer expires or the number of clients connected reaches [`NetworkConstants.MAXPLAYERS`](https://github.com/mirkomantovani/ProjectMJM/blob/master/src/main/java/it/polimi/ingsw/ps19/constant/NetworkConstants.java) the match starts.
+* When reaching the [`NetworkConstants.MINPLAYERS`](https://github.com/jimmy-hypi/LorenzoIlMagnifico/tree/main/src/constant/NetworkConstants.java) a timer starts, and if the timer expires or the number of clients connected reaches [`NetworkConstants.MAXPLAYERS`](https://github.com/jimmy-hypi/LorenzoIlMagnifico/tree/main/src/constant/NetworkConstants.java) the match starts.
 * ExecutorService Thread Pool used to Run MatchHandlers and a HashMap to store futures return by the executes, they’ll be needed to be able to stop the execution when the Match is finished.
 
 ## MatchHandler – the Controller - MVC
@@ -162,11 +162,9 @@ When created the Server starts the listening on both Socket port and RMI.
 * It modifies and calls methods of **model**, contained in a single object called Match, where all the game-needed data are ‘stored’.
 * A timer Thread dictates the round time every player has to decide the action to perform, if the timer expires the player is automatically disconnected from the game and the other players are notified.
 * The player can however reconnect and go on playing whenever he wants.
-* **Model-view** interactions: the model notifies the view that the state has changed (e.g. [`PlayerStatusChangeCommand`](https://github.com/mirkomantovani/ProjectMJM/blob/master/src/main/java/it/polimi/ingsw/ps19/command/toclient/PlayerStatusChangeCommand.java), [`OpponentStatusChangeCommand`](https://github.com/mirkomantovani/ProjectMJM/blob/master/src/main/java/it/polimi/ingsw/ps19/command/toclient/OpponentStatusChangeCommand.java)
+* **Model-view** interactions: the model notifies the view that the state has changed, e.g. [`PlayerStatusChangeCommand`](https://github.com/jimmy-hypi/LorenzoIlMagnifico/tree/main/src/command/toclient/PlayerStatusChangeCommand.java) [`OpponentStatusChangeCommand`](https://github.com/jimmy-hypi/LorenzoIlMagnifico/tree/main/src/command/toclient/OpponentStatusChangeCommand.java)
 ## Authentication - Reconnection
 * A mandatory **authentication** is required to start playing.
 * This is needed for both saving player stats and let users **reconnect** into the game demonstrating they were actually playing in that game.
 *  A standard String hashCode() was used to make the authentication possible without having to save sensitive information. 
 * A Thread saves updates the file containing Users information (played – won - lost matches, gameplay time) saving the on a File.
-
-
